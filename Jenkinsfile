@@ -2,7 +2,7 @@
 
 node {
     def rootDir = pwd()
-    def exampleModule = load "${rootDir}@script/example.groovy"
+    def exampleModule = load "${rootDir}/example.groovy"
 }
 
 pipeline {

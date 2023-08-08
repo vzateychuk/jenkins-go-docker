@@ -32,7 +32,9 @@ pipeline {
 
         stage('Invoke folder shared lib: exampleMethod') {
             steps {
-                exampleModule.exampleMethod()
+                script {
+                    exampleModule.exampleMethod()
+                }
             }
         }
 

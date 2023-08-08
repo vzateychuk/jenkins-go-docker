@@ -1,7 +1,9 @@
 @Library("git-shared-library") _ 
 
-def rootDir = pwd()
-def exampleModule = load "${rootDir}@script/example.groovy"
+node {
+    def rootDir = pwd()
+    def exampleModule = load "${rootDir}@script/example.groovy"
+}
 
 pipeline {
     agent any

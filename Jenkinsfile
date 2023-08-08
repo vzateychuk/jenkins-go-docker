@@ -1,5 +1,11 @@
 @Library("git-shared-library") _ 
 
+node {
+    def rootDir = pwd()
+    def exampleModule = load "${rootDir}@script/example.groovy "
+    exampleModule.exampleMethod()
+}
+
 pipeline {
     agent any
 
@@ -19,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('Hello') {
+        stage('Invoke global shared lib: Hello') {
             steps {
                 script {
                     helloWorld(name: "Vovka", dayOfWeek: "Tuesday")
@@ -27,9 +33,9 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Invoke folder shared lib: exampleMethod') {
             steps {
-                echo 'Deploying....'
+                exampleModule.exampleMethod()
             }
         }
 

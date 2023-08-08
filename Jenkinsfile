@@ -26,18 +26,14 @@ pipeline {
         stage('Hello') {
             steps {
                 script {
-                    echo "Hello world!"
+                    helloWorld(name: "Vovka", dayOfWeek: "Tuesday")
                 }
             }
         }
 
-        stage('Build application binaries') {
+        stage('Deploy') {
             steps {
-                script {
-                    builds.forEach {
-                        b -> echo "building: ${b.name}, source: ${b.srcDir}"
-                    }
-                }
+                echo 'Deploying....'
             }
         }
 

@@ -1,8 +1,4 @@
-def builds = [
-    [name: "data", srcDir: './src/services/data'],
-    [name: "meta", srcDir: './src/services/meta'],
-    [name: "http", srcDir: './src/services/http']
-]
+@Library("git-shared-library") _ 
 
 pipeline {
     agent any

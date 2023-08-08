@@ -36,7 +36,7 @@ pipeline {
                 script {
 
                     def parallelBuld = builds.collectEntries {
-                        b -> [ "${build.name}", {echo "building: ${build.name}, source: ${${build.name}}"}]
+                        b -> [ "${b.name}", {echo "building: ${b.name}, source: ${${b.srcDir}}"}]
                     }
 
                     parallel parallelBuld

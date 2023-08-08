@@ -34,12 +34,9 @@ pipeline {
         stage('Build application binaries') {
             steps {
                 script {
-
-                    def parallelBuld = builds.collectEntries {
-                        b -> [ "${b.name}", {echo "building: ${b.name}, source: ${${b.srcDir}}"}]
+                    builds.forEach {
+                        b -> echo "building: ${b.name}, source: ${b.srcDir}"
                     }
-
-                    parallel parallelBuld
                 }
             }
         }
